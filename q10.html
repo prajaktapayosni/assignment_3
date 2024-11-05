@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>q10</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
+            border-color: #007BFF; /* Change border color on hover */
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .success {
+            color: green;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Sign Up</h1>
+
+    <form id="signupForm">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+        </div>
+        <div class="form-group">
+            <button type="submit">Sign Up</button>
+        </div>
+        <div id="errorMessage" class="error" style="display: none;"></div>
+        <div id="successMessage" class="success" style="display: none;"></div>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            // Handle form submission
+            $('#signupForm').submit(function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Clear previous error and success messages
+                $('#errorMessage').hide();
+                $('#successMessage').hide();
+
+                var isValid = true;
+                var errorMessage = '';
+
+                // Check if username is empty
+                var username = $("#username").val();
+                if (username == "") {
+                    isValid = false;
+                    errorMessage += "Username cannot be empty.<br>";
+                }
+
+                // Check if email is empty or improperly formatted
+                var email = $("#email").val();
+                if (email == "") {
+                    isValid = false;
+                    errorMessage += "Email cannot be empty.<br>";
+                } else if (!validateEmail(email)) {
+                    isValid = false;
+                    errorMessage += "Please enter a valid email address.<br>";
+                }
+
+                // Check if password is empty
+                var password = $("#password").val();
+                if (password == "") {
+                    isValid = false;
+                    errorMessage += "Password cannot be empty.<br>";
+                }
+
+                if (isValid) {
+                    // If form is valid, display success message
+                    $('#successMessage').text("Form submitted successfully!").show();
+                } else {
+                    // If form is invalid, display error message
+                    $('#errorMessage').html(errorMessage).show();
+                }
+            });
+
+            // Validate email format using regex
+            function validateEmail(email) {
+                var re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return re.test(email);
+            }
+        });
+    </script>
+
+</body>
+</html>

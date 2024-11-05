@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>q1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#redButton').click(function() {
+                $('body').css('background-color', 'red');
+            });
+
+            $('#blueButton').click(function() {
+                $('body').css('background-color', 'blue');
+            });
+
+            $('#greenButton').click(function() {
+                $('body').css('background-color', 'green');
+            });
+
+            $('#toggle').click(function() {
+                $('div').toggle();
+            });
+        });
+    </script>
+    <style>
+        body {
+           
+            text-align: center;
+           
+        }
+        div {
+            margin: 10px ;
+            padding: 20px;
+            background-color:rgb(182, 255, 182);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Background Color Changer and Div Toggle</h1>
+
+    <button id="redButton">Red</button>
+    <button id="blueButton">Blue</button>
+    <button id="greenButton">Green</button>
+    <button id="toggle">Toggle</button>
+
+    <div>HELLO</div>
+    
+   
+
+</body>
+</html>

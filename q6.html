@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q6</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #myDiv {
+            width: 300px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: lightgray;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        .dim {
+            opacity: 0.4;
+        }
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="myDiv"></div>
+    <button id="addHighlight">Add Highlight</button>
+    <button id="addDim">Add Dim</button>
+
+    <script>
+        $(document).ready(function() {
+            // Add 'highlight' class when the "Add Highlight" button is clicked
+            $('#addHighlight').click(function() {
+                $('#myDiv').removeClass('dim').addClass('highlight');
+            });
+
+            // Add 'dim' class when the "Add Dim" button is clicked
+            $('#addDim').click(function() {
+                $('#myDiv').removeClass('highlight').addClass('dim');
+            });
+        });
+    </script>
+
+</body>
+</html>

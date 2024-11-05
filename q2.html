@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>q2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#div').click(function() {
+                $(this).text('Clicked');
+            });
+
+            $('#div').dblclick(function() {
+                $(this).css('background-color', 'orange');
+            });
+
+            $('#div').hover(
+                function() {
+                    $(this).css('border-color', 'green');
+                },
+                function() {
+                    $(this).css('border-color', 'black');
+                }
+            );
+        });
+    </script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: lightgray;
+        }
+        #div {
+            background-color: lightblue;
+            border: 15px solid black;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div">Click me</div>
+
+</body>
+</html>

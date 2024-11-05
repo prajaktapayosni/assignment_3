@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q4</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#fetchTextButton').click(function() {
+                // Retrieve and display text content of the <p> element
+                const textContent = $('#textParagraph').text();
+                alert(textContent);
+            });
+
+            $('#fetchHtmlButton').click(function() {
+                // Retrieve and display HTML content of the <div> element
+                const htmlContent = $('#htmlDiv').html();
+                alert(htmlContent);
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        p {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="textParagraph">This is a paragraph with some text content.</p>
+    <div id="htmlDiv"><strong>This is a div with <em>HTML</em> content.</strong></div>
+    
+    <button id="fetchTextButton">Fetch Text</button>
+    <button id="fetchHtmlButton">Fetch HTML</button>
+
+   
+</body>
+</html>

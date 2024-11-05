@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q7</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 60%;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        input {
+            margin: 5px;
+        }
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Data Table</h1>
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Initial Data Row -->
+            <tr>
+                <td>John Doe</td>
+                <td>18</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>19</td>
+                <td>B+</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <input type="text" id="studentName" placeholder="Enter Name">
+        <input type="number" id="studentAge" placeholder="Enter Age">
+        <input type="text" id="studentGrade" placeholder="Enter Grade">
+        <button id="addRow">Add Row</button>
+        <button id="changeColor">Change Color</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Add a new row to the table when the "Add Row" button is clicked
+            $('#addRow').click(function() {
+                var name = $('#studentName').val();
+                var age = $('#studentAge').val();
+                var grade = $('#studentGrade').val();
+
+                if (name && age && grade) {
+                    var newRow = `<tr>
+                        <td>${name}</td>
+                        <td>${age}</td>
+                        <td>${grade}</td>
+                    </tr>`;
+                    $('#studentTable tbody').append(newRow);
+
+                    // Clear the input fields after adding the row
+                    $('#studentName').val('');
+                    $('#studentAge').val('');
+                    $('#studentGrade').val('');
+                } else {
+                    alert('Please fill out all fields.');
+                }
+            });
+
+            // Change the text color of all table data to red
+            $('#changeColor').click(function() {
+                $('#studentTable td').css('color', 'red');
+            });
+        });
+    </script>
+
+</body>
+</html>

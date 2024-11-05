@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q8</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #container {
+            margin: 20px;
+        }
+        p {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Remove Paragraph by ID</h1>
+
+    <div>
+        <label for="elementId">Enter ID to remove: </label>
+        <input type="text" id="elementId" placeholder="Enter ID">
+        <button id="removeButton">Remove Element</button>
+    </div>
+
+    <div id="container">
+        <p id="para1">This is paragraph 1.</p>
+        <p id="para2">This is paragraph 2.</p>
+        <p id="para3">This is paragraph 3.</p>
+        <p id="para4">This is paragraph 4.</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#removeButton').click(function() {
+                // Get the ID entered by the user
+                var enteredId = $('#elementId').val();
+
+                // Check if the input is not empty and the element exists
+                if (enteredId) {
+                    var element = $('#' + enteredId);
+
+                    // If the element exists, remove it
+                    if (element.length > 0) {
+                        element.remove();
+                    } else {
+                        alert('Element with ID "' + enteredId + '" not found.');
+                    }
+                } else {
+                    alert('Please enter an ID.');
+                }
+
+                // Clear the input field after processing
+                $('#elementId').val('');
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>q3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let animation; // Variable to hold the animation
+
+            $('#startButton').click(function() {
+                // Start the animation if it's not already running
+                if (!animation) {
+                    animation = $('#animatedDiv').animate({ width: '400px' }, 2000);
+                }
+            });
+
+            $('#stopButton').click(function() {
+                // Stop the animation
+                if (animation) {
+                    $('#animatedDiv').stop(); // Stop the current animation
+                    animation = null; // Reset the animation variable
+                }
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        
+        }
+        #animatedDiv {
+            background-color:rgb(130, 238, 157);
+            width: 100px;
+            height: 100px;
+            transition: width 2s;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <div id="animatedDiv"></div>
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+
+   
+</body>
+</html>

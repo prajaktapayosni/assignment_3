@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q5</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <ul id="topicsList">
+            <li>Getting Started with Full Stack</li>
+            <li>HTML</li>
+            <li>CSS</li>
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Append 'CSS' at the end of the list
+            $('#topicsList').append('<li>CSS</li>');
+
+            // Prepend 'Introduction to Full Stack Development' at the beginning
+            $('#topicsList').prepend('<li>Introduction to Full Stack Development</li>');
+
+            // Insert a paragraph 'Topics updated' immediately after the list
+            $('#topicsList').after('<p>Topics updated</p>');
+
+            // Insert a heading 'List of Topics Covered' immediately before the list
+            $('#topicsList').before('<h2>List of Topics Covered</h2>');
+        });
+    </script>
+
+</body>
+</html>
